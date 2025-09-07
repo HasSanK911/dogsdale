@@ -19,6 +19,12 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    
+    <style>
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+    </style>
 </head>
 <body>
     @yield('content')

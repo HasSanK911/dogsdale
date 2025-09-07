@@ -1,0 +1,1 @@
+<h1>{{ __('messages.right_sidebar') }}</h1>

@@ -14,8 +14,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="p-4">
-                            <h3 class="primary-color">Verification</h3>
-                            <p class="primary-color">Verify your email</p>
+                            <h3 class="primary-color">{{ __('messages.verification') }}</h3>
+                            <p class="primary-color">{{ __('messages.verify_your_email') }}</p>
 
                             <!-- OTP Input Fields -->
                             <div class="d-flex justify-content-center gap-3 mb-4">
@@ -27,13 +27,13 @@
 
                             <!-- Resend Code Section -->
                             <div class="d-flex justify-content-between align-items-center mb-4">
-                                <span class="text-muted">Didn't receive code?</span>
-                                <a href="#" class="text-decoration-none secondary-color">Send again!</a>
+                                <span class="text-muted">{{ __('messages.didnt_receive_code') }}</span>
+                                <a href="#" class="text-decoration-none secondary-color">{{ __('messages.send_again') }}</a>
                             </div>
 
                             <!-- Verify Button -->
                             <div class="d-flex justify-content-center gap-2 mb-3">
-                                <a href="{{ route('reset-password') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">Verify</a>
+                                <a href="{{ route('reset-password') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">{{ __('messages.verify') }}</a>
                             </div>
                         </div>
                     </div>

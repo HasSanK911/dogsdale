@@ -14,8 +14,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="p-4">
-                            <h3 class="primary-color mb-2">Your Details</h3>
-                            <p class="text-muted primary-color mb-4">Please enter your details</p>
+                            <h3 class="primary-color mb-2">{{ __('messages.your_details') }}</h3>
+                            <p class="text-muted primary-color mb-4">{{ __('messages.enter_your_details') }}</p>
 
                             <!-- Profile Picture Section -->
                             <div class="text-center mb-4">
@@ -34,34 +34,34 @@
                             <!-- First Name and Last Name Row -->
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="First Name" id="firstName">
+                                    <input type="text" class="form-control" placeholder="{{ __('messages.first_name') }}" id="firstName">
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+                                    <input type="text" class="form-control" placeholder="{{ __('messages.last_name') }}" id="lastName">
                                 </div>
                             </div>
 
                             <!-- Phone Number Input -->
                             <div class="mb-3">
                                 <input type="tel" class="form-control" 
-                                       placeholder="Enter Your Phone Number" id="phoneNumber">
+                                       placeholder="{{ __('messages.enter_phone_number') }}" id="phoneNumber">
                             </div>
 
                             <!-- About Section -->
                             <div class="mb-3">
                                 <textarea class="form-control" rows="3" 
-                                          placeholder="Write About Your Dog and Yourself" id="about"></textarea>
+                                          placeholder="{{ __('messages.write_about_dog') }}" id="about"></textarea>
                             </div>
 
                             <!-- Date Input -->
                             <div class="input-group mb-4">
-                                <input type="date" class="form-control" placeholder="MM/DD/YYYY" id="birthDate">
+                                <input type="date" class="form-control" placeholder="{{ __('messages.birth_date_format') }}" id="birthDate">
                                 
                             </div>
 
                             <!-- Save and Next Button -->
                             <div class="d-flex justify-content-center gap-2 mb-4">
-                                <a href="{{ route('address') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">Save and Next</a>
+                                <a href="{{ route('address') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">{{ __('messages.save_and_next') }}</a>
                             </div>
                         </div>
                     </div>

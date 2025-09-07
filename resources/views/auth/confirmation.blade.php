@@ -14,12 +14,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="p-4 text-center d-flex flex-column justify-content-center h-100">
-                            <h3 class="primary-color mb-3">Confirmation</h3>
-                            <p class="primary-color mb-4">Your Password has been changed, please Login with new Password to continue.</p>
+                            <h3 class="primary-color mb-3">{{ __('messages.confirmation') }}</h3>
+                            <p class="primary-color mb-4">{{ __('messages.password_changed_message') }}</p>
 
                             <!-- Back to Login Button -->
                             <div class="d-flex justify-content-center gap-2 mb-3">
-                                <a href="{{ route('login') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">Back to Login</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">{{ __('messages.back_to_login') }}</a>
                             </div>
                         </div>
                     </div>

@@ -14,15 +14,15 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="p-4">
-                            <h3 class="primary-color">Reset Password</h3>
-                            <p class="primary-color">Please enter your new password</p>
+                            <h3 class="primary-color">{{ __('messages.reset_password') }}</h3>
+                            <p class="primary-color">{{ __('messages.enter_new_password') }}</p>
 
                             <!-- New Password Input Field -->
                             <div class="input-group mb-3">
                                 <span class="input-group-text bg-transparent border-end-0">
                                     <i class="bi bi-lock text-muted"></i>
                                 </span>
-                                <input type="password" class="form-control border-start-0" placeholder="New Password"
+                                <input type="password" class="form-control border-start-0" placeholder="{{ __('messages.new_password') }}"
                                     id="newPassword">
                                 <span class="input-group-text bg-transparent border-start-0">
                                     <i class="bi bi-eye-slash text-muted password-toggle" style="cursor: pointer;"></i>
@@ -34,7 +34,7 @@
                                 <span class="input-group-text bg-transparent border-end-0">
                                     <i class="bi bi-lock text-muted"></i>
                                 </span>
-                                <input type="password" class="form-control border-start-0" placeholder="Confirm Password"
+                                <input type="password" class="form-control border-start-0" placeholder="{{ __('messages.confirm_password') }}"
                                     id="confirmPassword">
                                 <span class="input-group-text bg-transparent border-start-0">
                                     <i class="bi bi-eye-slash text-muted password-toggle" style="cursor: pointer;"></i>
@@ -43,7 +43,7 @@
 
                             <!-- Confirm Password Button -->
                             <div class="d-flex justify-content-center gap-2 mb-3">
-                                <a href="{{ route('confirmation') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">Confirm Password</a>
+                                <a href="{{ route('confirmation') }}" class="btn btn-primary text-white px-5 fs-6 text-decoration-none">{{ __('messages.confirm_password') }}</a>
                             </div>
                         </div>
                     </div>

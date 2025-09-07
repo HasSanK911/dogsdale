@@ -1,15 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 
 // Login page as default
 Route::get('/', function () {
     return view('auth.login');
 })->name('login');
 
-// Home page (for after login)
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Home page (main layout - default page)
+Route::get('/home', function () {
+    return view('main.home');
+})->name('home');
+
+// Additional main layout pages
+Route::get('/dogs', function () {
+    return view('main.dogs');
+})->name('dogs');
 
 // Signup page
 Route::get('/signup', function () {
@@ -45,3 +52,6 @@ Route::get('/reset-password', function () {
 Route::get('/confirmation', function () {
     return view('auth.confirmation');
 })->name('confirmation');
+
+// Language switching routes
+Route::get('/language/{locale}', [LanguageController::class, 'switchLanguage'])->name('language.switch');
