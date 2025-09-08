@@ -83,4 +83,15 @@ return [
     'already_have_account' => 'पहले से खाता है?',
     'profile_name' => 'राम शर्मा',
     'forum' => 'फोरम',
+    
+    // Filter translations
+    'filters' => 'फिल्टर',
+    'country' => 'देश',
+    'dog_breed' => 'कुत्ते की नस्ल',
+    'bloodline' => 'रक्त रेखा',
+    'select_country' => 'देश चुनें',
+    'select_breed' => 'नस्ल चुनें',
+    'select_bloodline' => 'रक्त रेखा चुनें',
+    'apply_filters' => 'फिल्टर लागू करें',
+    'clear' => 'साफ़ करें',
 ];

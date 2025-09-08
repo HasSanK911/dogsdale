@@ -83,4 +83,15 @@ return [
     'already_have_account' => '¿Ya tienes una cuenta?',
     'profile_name' => 'Juan Pérez',
     'forum' => 'Foro',
+    
+    // Filter translations
+    'filters' => 'Filtros',
+    'country' => 'País',
+    'dog_breed' => 'Raza de Perro',
+    'bloodline' => 'Línea de Sangre',
+    'select_country' => 'Seleccionar País',
+    'select_breed' => 'Seleccionar Raza',
+    'select_bloodline' => 'Seleccionar Línea de Sangre',
+    'apply_filters' => 'Aplicar Filtros',
+    'clear' => 'Limpiar',
 ];

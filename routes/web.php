@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\FilterController;
 
 // Login page as default
 Route::get('/', function () {
@@ -55,3 +56,8 @@ Route::get('/confirmation', function () {
 
 // Language switching routes
 Route::get('/language/{locale}', [LanguageController::class, 'switchLanguage'])->name('language.switch');
+
+// Filter routes
+Route::get('/filters/countries', [FilterController::class, 'getCountries'])->name('filters.countries');
+Route::get('/filters/breeds', [FilterController::class, 'getBreeds'])->name('filters.breeds');
+Route::get('/filters/bloodlines', [FilterController::class, 'getBloodlines'])->name('filters.bloodlines');

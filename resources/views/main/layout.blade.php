@@ -15,6 +15,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Vite Assets (includes app.scss) -->
+    @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    
     <style>
         /* World-Class Header Design */
         * {
@@ -28,6 +31,101 @@
             color: #1a1a1a;
             background: #f1f1f1;
             min-height: 100vh;
+        }
+
+        /* App.scss styles integration */
+        .primary-color {
+            color: #00A8D1 !important;
+        }
+
+        .secondary-color {
+            color: #F6871F !important;
+        }
+
+        /* Form controls styling from app.scss */
+        .form-control, .form-select, textarea.form-control {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 14px;
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus, .form-select:focus, textarea.form-control:focus {
+            border-color: #00A8D1;
+            box-shadow: 0 2px 12px rgba(0, 168, 209, 0.2);
+            outline: none;
+        }
+
+        .form-control::placeholder, textarea.form-control::placeholder {
+            color: #999;
+            font-size: 14px;
+            opacity: 1;
+        }
+
+        /* Input group styling */
+        .input-group {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .input-group-text {
+            border: none;
+            padding: 12px 15px;
+            background: transparent;
+        }
+
+        .input-group .form-control {
+            border: none;
+            padding: 12px 15px;
+            font-size: 14px;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .input-group .form-control:focus {
+            border: none;
+            box-shadow: none;
+            outline: none;
+            background: transparent;
+        }
+
+        .input-group:focus-within {
+            border-color: #00A8D1;
+            box-shadow: 0 2px 12px rgba(0, 168, 209, 0.2);
+        }
+
+        /* OTP Input styles */
+        .otp-input {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .otp-input:focus {
+            border-color: #00A8D1;
+            box-shadow: 0 2px 12px rgba(0, 168, 209, 0.2);
+            outline: none;
+        }
+
+        .otp-input::placeholder {
+            color: #ccc;
+            font-size: 24px;
+            font-weight: 600;
         }
 
         /* Header */

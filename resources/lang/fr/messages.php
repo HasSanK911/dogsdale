@@ -83,4 +83,15 @@ return [
     'already_have_account' => 'Vous avez déjà un compte?',
     'profile_name' => 'Jean Dupont',
     'forum' => 'Forum',
+    
+    // Filter translations
+    'filters' => 'Filtres',
+    'country' => 'Pays',
+    'dog_breed' => 'Race de Chien',
+    'bloodline' => 'Lignée',
+    'select_country' => 'Sélectionner un Pays',
+    'select_breed' => 'Sélectionner une Race',
+    'select_bloodline' => 'Sélectionner une Lignée',
+    'apply_filters' => 'Appliquer les Filtres',
+    'clear' => 'Effacer',
 ];

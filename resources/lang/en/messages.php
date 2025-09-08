@@ -83,4 +83,15 @@ return [
     'already_have_account' => 'Already have an account?',
     'profile_name' => 'John Doe',
     'forum' => 'Forum',
+    
+    // Filter translations
+    'filters' => 'Filters',
+    'country' => 'Country',
+    'dog_breed' => 'Dog Breed',
+    'bloodline' => 'Bloodline',
+    'select_country' => 'Select Country',
+    'select_breed' => 'Select Breed',
+    'select_bloodline' => 'Select Bloodline',
+    'apply_filters' => 'Apply Filters',
+    'clear' => 'Clear',
 ];
