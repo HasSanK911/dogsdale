@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Dogifier')</title>
     
-    <!-- Google Fonts - Outfit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+            <!-- Google Fonts - Poppins -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,12 +26,12 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #1a1a1a;
-            background: #f1f1f1;
-            min-height: 100vh;
-        }
+                body {
+                    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                    color: #1a1a1a;
+                    background: #f1f1f1;
+                    min-height: 100vh;
+                }
 
         /* App.scss styles integration */
         .primary-color {
@@ -483,17 +483,61 @@
         /* Main Layout */
         .main-layout {
             display: flex;
-            min-height: calc(100vh - 72px);
+            height: calc(100vh - 72px);
+            min-height: 0; /* Important for flexbox */
+            overflow: hidden; /* Prevent main layout from scrolling */
         }
 
         /* Main Content */
         .main-content {
             flex: 1;
-            padding: 16px;
+            padding: 0;
             margin-left: 0;
+            min-height: 0; /* Important for flexbox */
+            overflow: hidden; /* Prevent main content from scrolling */
         }
 
-       
+        /* Ensure body and html take full height */
+        html, body {
+            height: 100%;
+        }
+        
+        /* Hidden scrollbar for clean appearance */
+        .overflow-y-auto {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        
+        .overflow-y-auto::-webkit-scrollbar {
+            display: none; /* WebKit browsers (Chrome, Safari, Edge) */
+        }
+        
+        /* Ensure smooth scrolling */
+        .overflow-y-auto {
+            scroll-behavior: smooth;
+        }
+        
+        /* Ensure proper scrolling behavior for each column */
+        .col-xl-3 .overflow-y-auto,
+        .col-xl-6 .overflow-y-auto {
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 100%;
+            max-height: 100%;
+        }
+        
+        /* Ensure columns don't interfere with each other's scrolling */
+        .row .col-xl-3,
+        .row .col-xl-6 {
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        /* Container fluid should not scroll */
+        .container-fluid {
+            overflow: hidden;
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -566,23 +610,7 @@
             <!-- Left Section - Logo -->
             <div class="header-left">
                 <a href="{{ route('home') }}" class="logo">
-                    <div class="logo-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z" fill="url(#gradient1)"/>
-                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="url(#gradient2)" stroke-width="2" fill="none"/>
-                            <defs>
-                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00A8D1;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#0088B8;stop-opacity:1" />
-                                </linearGradient>
-                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#00A8D1;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#00C4E6;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <span class="logo-text">{{ __('messages.app_name') }}</span>
+                    <img src="{{asset('Logo.svg')}}" alt="logo"  height="32">
                 </a>
             </div>
 
@@ -671,12 +699,12 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <div class="main-layout">
-        <div class="main-content">
-            @yield('content')
-        </div>
-    </div>
+            <!-- Main Content Area -->
+            <div class="main-layout flex-grow-1 d-flex flex-column">
+                <div class="main-content flex-grow-1">
+                    @yield('content')
+                </div>
+            </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -688,6 +716,9 @@
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
             });
+            
+            // Each column will scroll independently with native browser behavior
+            // No additional JavaScript needed for basic scrolling functionality
         });
     </script>
     

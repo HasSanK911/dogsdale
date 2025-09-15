@@ -1,583 +1,471 @@
-<div class="">
-    <div class="bg-white rounded-3 p-2 mb-3 w-100" >
-        <div class="d-flex flex-column align-items-center justify-content-center my-3">
-             <img src="{{asset('dogs/wendell.jpg')}}" class="rounded-circle" alt="profile_img" width="80px" height="80px">
-             <a href="" class="text-decoration-none text-dark ms-3 mt-3 fw-semibold fs-4">{{ __('messages.profile_name') }}</a>
+<div class="h-100">
+    <div class="bg-white p-3 rounded-3 w-100">
+        <div class="d-flex flex-column align-items-center gap-2">
+            <img src="{{ asset('dogs/davidbates.jpg') }}" alt="Logo" class="img-fluid rounded-circle" width="120px" height="120px"> 
+            <a href="{{ route('home') }}" class="text-decoration-none text-dark fs-5 fw-semibold">
+                David Bates
+            </a>
         </div>
-         <div class="sidebar-nav d-flex flex-column justify-content-center my-3">
-             <a href="{{ route('home') }}" class="text-decoration-none text-dark fw-normal fs-5 rounded-3 d-flex align-items-center px-2">
-                 <i class="fas fa-home me-3"></i>{{ __('messages.home') }}
-             </a>
-             <a href="" class="text-decoration-none text-dark fw-normal fs-5 rounded-3 d-flex align-items-center px-2">
-                 <i class="fas fa-book-open me-3"></i>{{ __('messages.stories') }}
-             </a>
-             <a href="" class="text-decoration-none text-dark fw-normal fs-5 rounded-3 d-flex align-items-center px-2">
-                 <i class="fas fa-video me-3"></i>{{ __('messages.videos') }}
-             </a>
-             <a href="" class="text-decoration-none text-dark fw-normal fs-5 rounded-3 d-flex align-items-center px-2">
-                 <i class="fas fa-comments me-3"></i>{{ __('messages.forum') }}
-             </a>
-             <a href="" class="text-decoration-none text-dark fw-normal fs-5 rounded-3 d-flex align-items-center px-2">
-                 <i class="fas fa-dog me-3"></i>{{ __('messages.create_kennel') }}
-             </a>
-             <a href="" class="text-decoration-none text-dark fw-normal fs-5 rounded-3 d-flex align-items-center px-2">
-                 <i class="fas fa-bullhorn me-3"></i>{{ __('messages.litter_announcements') }}
-             </a>
-         </div>
-    </div>
-    <div class="bg-white rounded-3 p-3 mb-3 w-100" >
-        <h2 class="text-dark mt-3 fw-medium fs-5 d-flex align-items-center mb-4">
-            <i class="fas fa-filter me-2 "></i>{{ __('messages.filters') }}
-        </h2>
-        
-        <!-- Country Filter -->
-        <div class="mb-4">
-            <label for="countryFilter" class="form-label fw-semibold text-dark mb-2">
-               {{ __('messages.country') }}
-            </label>
-            <div class="custom-dropdown" data-filter="country">
-                <div class="dropdown-toggle" id="countryDropdown">
-                    <span class="selected-text placeholder">{{ __('messages.select_country') }}</span>
-                </div>
-                <div class="dropdown-menu">
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="Search countries...">
-                        <i class="fas fa-search search-icon"></i>
-                    </div>
-                    <div class="options-container">
-                        <div class="option" data-value="">{{ __('messages.select_country') }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Dog Breed Filter -->
-        <div class="mb-4" id="breedFilterContainer">
-            <label for="breedFilter" class="form-label fw-semibold text-dark mb-2">
-               {{ __('messages.dog_breed') }}
-            </label>
-            <div class="custom-dropdown" data-filter="breed">
-                <div class="dropdown-toggle" id="breedDropdown">
-                    <span class="selected-text placeholder">{{ __('messages.select_breed') }}</span>
-                </div>
-                <div class="dropdown-menu">
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="Search breeds...">
-                        <i class="fas fa-search search-icon"></i>
-                    </div>
-                    <div class="options-container">
-                        <div class="option" data-value="">{{ __('messages.select_breed') }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Bloodline Filter -->
-        <div class="mb-4" id="bloodlineFilterContainer">
-            <label for="bloodlineFilter" class="form-label fw-semibold text-dark mb-2">
-                {{ __('messages.bloodline') }}
-            </label>
-            <div class="custom-dropdown" data-filter="bloodline">
-                <div class="dropdown-toggle" id="bloodlineDropdown">
-                    <span class="selected-text placeholder">{{ __('messages.select_bloodline') }}</span>
-                </div>
-                <div class="dropdown-menu">
-                    <div class="search-container">
-                        <input type="text" class="search-input" placeholder="Search bloodlines...">
-                        <i class="fas fa-search search-icon"></i>
-                    </div>
-                    <div class="options-container">
-                        <div class="option" data-value="">{{ __('messages.select_bloodline') }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-         
-        <!-- Filter Actions -->
-        <div class="d-flex gap-2 mt-4">
-            <button id="applyFilters" class="btn btn-primary text-white btn-sm flex-fill" disabled>
-                <i class="fas fa-search me-1"></i>{{ __('messages.apply_filters') }}
+        <div class="mt-3 d-flex flex-column gap-2">
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+                <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9,22 9,12 15,12 15,22"/>
+                </svg>
+                <span>Create Kennel</span>
             </button>
-            <button id="clearFilters" class="btn btn-outline-secondary btn-sm">
-                <i class="fas fa-times me-1"></i>{{ __('messages.clear') }}
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+                <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>Litter Announcements</span>
+            </button>
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+                <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    <path d="M13 8H7"/>
+                    <path d="M17 12H7"/>
+                    <path d="M10 16H7"/>
+                </svg>
+                <span>Create Forum</span>
+            </button>
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+                <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>Saved</span>
+            </button>
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+                <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"/>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                </svg>
+                <span>Videos</span>
+            </button>
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+                <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10,9 9,9 8,9"/>
+                </svg>
+                <span>Stories</span>
             </button>
         </div>
     </div>
+    <div class="bg-white p-3 rounded-3 w-100 mt-3">
+        <div class="filter-section">
+            <h5 class=" mb-3 fw-medium text-black text-start">
+                Filters
+            </h5>
+            
+            <!-- Country Filter -->
+            <div class="filter-group mb-3">
+                <label class="filter-label">Country</label>
+                <select id="countryFilter" class="form-select filter-select">
+                    <option value="">Select Country</option>
+                </select>
+            </div>
+            
+            <!-- Dog Breed Filter -->
+            <div class="filter-group mb-3" id="breedFilterGroup" style="display: none;">
+                <label class="filter-label">Dog Breed</label>
+                <select id="breedFilter" class="form-select filter-select">
+                    <option value="">Select Breed</option>
+                </select>
+            </div>
+            
+            <!-- Bloodline Filter -->
+            <div class="filter-group mb-3" id="bloodlineFilterGroup" style="display: none;">
+                <label class="filter-label">Bloodline</label>
+                <select id="bloodlineFilter" class="form-select filter-select">
+                    <option value="">Select Bloodline</option>
+                </select>
+            </div>
+            
+            <!-- Filter Actions -->
+            <div class="filter-actions d-flex gap-2">
+                <button id="applyFilters" class="btn btn-primary btn-sm flex-fill" disabled>
+                    <svg class="me-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                    Apply
+                </button>
+                <button id="clearFilters" class="btn btn-outline-secondary btn-sm">
+                    <svg class="me-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                    Clear
+                </button>
+            </div>
+    </div>
+</div>
+<div class="bg-white p-3 rounded-3 w-100 mt-3">
+<h5 class=" mb-3 fw-medium text-black text-start">
+            Kennels
+        </h5>
+        <div>
+             <a href="" class="btn px-0 d-flex align-items-center gap-3">
+                <img src="{{ asset('dogs/kennel1.png') }}" alt="Kaleemi Kennel" class="rounded-circle" width="40px" height="40px"> 
+                <span>Kaleemi Kennel Club</span>
+            </a>
+            <a href="" class="btn px-0 d-flex align-items-center gap-3">
+                <img src="{{ asset('dogs/kennel2.png') }}" alt="Tom Garner Kennel" class="rounded-circle" width="40px" height="40px"> 
+                <span>Tom Garner Kennels</span>
+            </a>
+            <a href="" class="btn px-0 d-flex align-items-center gap-3">
+                <img src="{{ asset('dogs/kennel3.png') }}" alt="Buck Bred Kennel" class="rounded-circle" width="40px" height="40px"> 
+                <span>Buck Bred Kennels</span>
+            </a>
+            <a href="" class="btn px-0 d-flex align-items-center gap-3">
+                <img src="{{ asset('dogs/cover.jpeg') }}" alt="Machobuck Kennel" class="rounded-circle" width="40px" height="40px"> 
+                <span>Machobuck Kennels</span>
+            </a>
+            <a href="" class="btn px-0 d-flex align-items-center gap-3">
+                <img src="{{ asset('dogs/cardimage.png') }}" alt="Do Or Die Kennel" class="rounded-circle" width="40px" height="40px"> 
+                <span>Do Or Die Kennels</span>
+            </a>
+        </div>
+</div>
+
 </div>
 
 <style>
-    .sidebar-nav a {
-        height: 50px;
+    .sidebar-btn {
+        background: transparent;
+        border: none;
+        /* color: #374151; */
         transition: all 0.3s ease;
+        font-weight: 500;
     }
-    .sidebar-nav a:hover {
-        background-color: #00A8D1;
+
+
+    a:hover{
+        color: grey !important;
+    }
+    
+    .sidebar-btn:hover,
+    .sidebar-btn:active,
+    .sidebar-btn.active {
+        background-color: #00A8D1 !important;
         color: white !important;
-        transform: translateX(5px);
     }
-    .sidebar-nav a i {
+    
+    
+    .sidebar-btn:hover span,
+    .sidebar-btn:active span,
+    .sidebar-btn.active span {
+        color: white !important;
+    }
+    
+    .sidebar-icon {
         width: 20px;
-        text-align: center;
-    }
-    .profile-name {
-        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-    
-    /* App.scss integration for sidebar */
-    .primary-color {
-        color: #00A8D1 !important;
-    }
-    
-    .secondary-color {
-        color: #F6871F !important;
-    }
-    
-    /* Ensure Outfit font is applied */
-    .sidebar-nav a, .profile-name {
-        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    
-    /* Custom Dropdown Styles */
-    .custom-dropdown {
-        position: relative;
-        width: 100%;
-    }
-    
-    .dropdown-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 16px;
-        background: #fff;
-        border: 2px solid #e9ecef;
-        border-radius: 8px;
-        cursor: pointer;
+        height: 20px;
         transition: all 0.3s ease;
-        min-height: 42px;
-        font-size: 0.9rem;
-        color: #495057;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        stroke: currentColor;
     }
     
-    .dropdown-toggle:hover {
-        border-color: #00A8D1;
-        box-shadow: 0 2px 8px rgba(0, 168, 209, 0.1);
+    .sidebar-btn:hover .sidebar-icon,
+    .sidebar-btn:active .sidebar-icon,
+    .sidebar-btn.active .sidebar-icon {
+        stroke: white;
+        transform: scale(1.05);
     }
     
-    .dropdown-toggle.active {
-        border-color: #00A8D1;
-        box-shadow: 0 0 0 0.2rem rgba(0, 168, 209, 0.25);
+    .filter-group {
+        margin-bottom: 12px;
     }
     
-    .selected-text {
-        flex: 1;
-        text-align: left;
-        color: #495057;
-    }
-    
-    .selected-text.placeholder {
+    .filter-label {
+        font-size: 14px;
+        font-weight: 500;
         color: #6c757d;
-        font-style: italic;
-    }
-    
-    .dropdown-arrow {
-        transition: transform 0.3s ease;
-        color: #6c757d;
-        font-size: 0.8rem;
-    }
-    
-    .dropdown-toggle.active .dropdown-arrow {
-        transform: rotate(180deg);
-    }
-    
-    .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border: 2px solid #e9ecef;
-        border-radius: 8px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        z-index: 1000;
-        max-height: 300px;
-        overflow: hidden;
-        display: none;
-        margin-top: 4px;
-    }
-    
-    .dropdown-menu.show {
+        margin-bottom: 6px;
         display: block;
     }
     
-    .search-container {
-        position: relative;
-        padding: 12px;
-        border-bottom: 1px solid #e9ecef;
-        background: #f8f9fa;
+    .filter-select {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        background: white;
     }
     
-    .search-input {
-        width: 100%;
-        padding: 8px 12px 8px 36px;
-        border: 1px solid #e9ecef;
-        border-radius: 6px;
-        font-size: 0.9rem;
-        outline: none;
-        transition: border-color 0.3s ease;
-    }
-    
-    .search-input:focus {
+    .filter-select:focus {
         border-color: #00A8D1;
         box-shadow: 0 0 0 0.2rem rgba(0, 168, 209, 0.25);
+        outline: none;
     }
     
-    .search-icon {
-        position: absolute;
-        left: 24px;
-        top: 50%;
-        transform: translateY(-50%);
+    .filter-actions {
+        margin-top: 16px;
+    }
+    
+    .filter-actions .btn {
+        font-size: 12px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .filter-actions .btn-primary {
+        background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+        border: none;
+    }
+    
+    .filter-actions .btn-primary:hover {
+        background: linear-gradient(135deg, #0088B8 0%, #006699 100%);
+        transform: translateY(-1px);
+    }
+    
+    .filter-actions .btn-outline-secondary {
+        border: 1px solid #dee2e6;
         color: #6c757d;
-        font-size: 0.8rem;
     }
     
-    .options-container {
-        max-height: 200px;
-        overflow-y: auto;
-        padding: 4px 0;
-    }
-    
-    .option {
-        padding: 12px 16px;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-        font-size: 0.9rem;
+    .filter-actions .btn-outline-secondary:hover {
+        background: #f8f9fa;
+        border-color: #adb5bd;
         color: #495057;
-        border-bottom: 1px solid #f8f9fa;
     }
     
-    .option:hover {
-        background-color: #f8f9fa;
+    /* Select2 Customization */
+    .select2-container--default .select2-selection--single {
+        border: 1px solid #dee2e6 !important;
+        border-radius: 8px !important;
+        height: 38px !important;
+        padding: 0 12px !important;
+        background: white !important;
     }
     
-    .option.selected {
-        background-color: #00A8D1;
-        color: white;
+    .select2-container--default .select2-selection--single:focus {
+        border-color: #00A8D1 !important;
+        box-shadow: 0 0 0 0.2rem rgba(0, 168, 209, 0.25) !important;
     }
     
-    .option:last-child {
-        border-bottom: none;
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 36px !important;
+        color: #495057 !important;
+        font-size: 13px !important;
+        padding-left: 0 !important;
     }
     
-    .option.hidden {
-        display: none;
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 36px !important;
+        right: 8px !important;
     }
     
-    /* Custom scrollbar for options */
-    .options-container::-webkit-scrollbar {
-        width: 6px;
+    .select2-dropdown {
+        border: 1px solid #dee2e6 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
     }
     
-    .options-container::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 3px;
+    .select2-container--default .select2-search--dropdown .select2-search__field {
+        border: 1px solid #dee2e6 !important;
+        border-radius: 6px !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
     }
     
-    .options-container::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 3px;
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: #00A8D1 !important;
     }
     
-    .options-container::-webkit-scrollbar-thumb:hover {
-        background: #a8a8a8;
+    .select2-container--default .select2-results__option[aria-selected=true] {
+        background-color: #e3f2fd !important;
+        color: #00A8D1 !important;
     }
     
-    /* Form Label Styles */
-    .form-label {
-        font-size: 13px;
-        margin-bottom: 8px;
+    
+    
+    /* Section Headers with Icons */
+    h5 {
         color: #374151;
+        font-size: 16px;
         font-weight: 600;
         display: flex;
         align-items: center;
     }
     
-    .form-label i {
-        font-size: 14px;
+    h5 svg {
+        color: #00A8D1;
     }
     
-    /* Button Styles */
-    .btn {
-        font-size: 13px;
-        padding: 8px 16px;
+    /* Buttons */
+    .btn-outline-primary {
+        border-color: #00A8D1;
+        color: #00A8D1;
         font-weight: 500;
-        border-radius: 6px;
         transition: all 0.3s ease;
     }
     
-    .btn-primary {
-        background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
-        border: none;
-        box-shadow: 0 2px 8px rgba(0, 168, 209, 0.3);
-    }
-    
-    .btn-primary:hover {
-        background: linear-gradient(135deg, #0088B8 0%, #006699 100%);
+    .btn-outline-primary:hover {
+        background-color: #00A8D1;
+        border-color: #00A8D1;
+        color: white;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(0, 168, 209, 0.4);
-    }
-    
-    .btn-outline-secondary {
-        border: 1px solid #e0e0e0;
-        color: #6b7280;
-        background: white;
-    }
-    
-    .btn-outline-secondary:hover {
-        background: #f8f9fa;
-        border-color: #d1d5db;
-        color: #374151;
-        transform: translateY(-1px);
-    }
-    
-    #applyFilters:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: none !important;
-        box-shadow: 0 2px 8px rgba(0, 168, 209, 0.2) !important;
     }
 </style>
 
+<!-- jQuery and Select2 -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get dropdown elements
-    const countryDropdown = document.getElementById('countryDropdown');
-    const breedDropdown = document.getElementById('breedDropdown');
-    const bloodlineDropdown = document.getElementById('bloodlineDropdown');
-    const breedContainer = document.getElementById('breedFilterContainer');
-    const bloodlineContainer = document.getElementById('bloodlineFilterContainer');
-    const applyBtn = document.getElementById('applyFilters');
-    const clearBtn = document.getElementById('clearFilters');
+$(document).ready(function() {
+    // Wait a bit for Select2 to load, then initialize
+    setTimeout(function() {
+        initializeSelect2();
+    }, 100);
     
-    let currentFilters = {
-        country: 'all',
-        breed: 'all',
-        bloodline: 'all'
-    };
+    function initializeSelect2() {
+        // Check if Select2 is loaded
+        if (typeof $.fn.select2 === 'undefined') {
+            console.log('Select2 not found, attempting to load dynamically...');
+            loadSelect2Dynamically();
+            return;
+        }
+        
+        // Initialize Select2 for all filter dropdowns
+        try {
+            $('#countryFilter, #breedFilter, #bloodlineFilter').select2({
+                placeholder: 'Select an option',
+                allowClear: true,
+                width: '100%',
+                dropdownParent: $('.filter-section')
+            });
+            console.log('Select2 initialized successfully');
+        } catch (error) {
+            console.error('Error initializing Select2:', error);
+            initializeStandardDropdowns();
+        }
+    }
     
-    // Initialize custom dropdowns
-    initializeCustomDropdowns();
+    function loadSelect2Dynamically() {
+        // Try to load Select2 from a different CDN
+        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js')
+            .done(function() {
+                console.log('Select2 loaded dynamically, initializing...');
+                setTimeout(function() {
+                    if (typeof $.fn.select2 !== 'undefined') {
+                        initializeSelect2();
+                    } else {
+                        console.error('Select2 still not available after dynamic load');
+                        initializeStandardDropdowns();
+                    }
+                }, 50);
+            })
+            .fail(function() {
+                console.error('Failed to load Select2 dynamically, using standard dropdowns');
+                initializeStandardDropdowns();
+            });
+    }
     
     // Load countries on page load
     loadCountries();
     
-    // Initialize custom dropdown functionality
-    function initializeCustomDropdowns() {
-        // Initialize each dropdown
-        initializeDropdown(countryDropdown, 'country');
-        initializeDropdown(breedDropdown, 'breed');
-        initializeDropdown(bloodlineDropdown, 'bloodline');
-    }
-    
-    // Initialize individual dropdown
-    function initializeDropdown(dropdown, filterType) {
-        if (!dropdown) return;
+    // Country change handler
+    $('#countryFilter').on('change', function() {
+        const countryId = $(this).val();
         
-        const dropdownMenu = dropdown.nextElementSibling;
-        const searchInput = dropdownMenu.querySelector('.search-input');
-        const optionsContainer = dropdownMenu.querySelector('.options-container');
-        const selectedText = dropdown.querySelector('.selected-text');
-        
-        // Toggle dropdown
-        dropdown.addEventListener('click', function(e) {
-            e.stopPropagation();
-            closeAllDropdowns();
-            dropdown.classList.toggle('active');
-            dropdownMenu.classList.toggle('show');
-            
-            if (dropdownMenu.classList.contains('show')) {
-                searchInput.focus();
-            }
-        });
-        
-        // Handle search
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const options = optionsContainer.querySelectorAll('.option');
-            
-            options.forEach(option => {
-                const text = option.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    option.classList.remove('hidden');
-                } else {
-                    option.classList.add('hidden');
-                }
-            });
-        });
-        
-        // Handle option selection
-        optionsContainer.addEventListener('click', function(e) {
-            if (e.target.classList.contains('option')) {
-                const value = e.target.getAttribute('data-value');
-                const text = e.target.textContent;
-                
-                // Update selected text
-                selectedText.textContent = text;
-                selectedText.classList.toggle('placeholder', value === '');
-                
-                // Update current filters
-                currentFilters[filterType] = value;
-                
-                // Close dropdown
-                dropdown.classList.remove('active');
-                dropdownMenu.classList.remove('show');
-                
-                // Handle cascading filters
-                handleFilterChange(filterType, value);
-                
-                // Update apply button
-                updateApplyButton();
-            }
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-                dropdownMenu.classList.remove('show');
-            }
-        });
-    }
-    
-    // Handle filter changes and cascading
-    function handleFilterChange(filterType, value) {
-        if (filterType === 'country') {
-            if (value === 'all') {
-                // If "All Countries" is selected, show all breeds and bloodlines
-                breedContainer.style.display = 'block';
-                bloodlineContainer.style.display = 'block';
-                
-                // Load all breeds (use US as default for getting all breeds)
-                loadBreeds('US');
-                setTimeout(() => {
-                    const breedSelectedText = breedDropdown.querySelector('.selected-text');
-                    breedSelectedText.textContent = 'All Breeds';
-                    breedSelectedText.classList.remove('placeholder');
-                    currentFilters.breed = 'all';
-                    
-                    // Load all bloodlines
-                    loadBloodlines('labrador');
-                    setTimeout(() => {
-                        const bloodlineSelectedText = bloodlineDropdown.querySelector('.selected-text');
-                        bloodlineSelectedText.textContent = 'All Bloodlines';
-                        bloodlineSelectedText.classList.remove('placeholder');
-                        currentFilters.bloodline = 'all';
-                        updateApplyButton();
-                    }, 100);
-                }, 100);
-            } else {
-                // If specific country is selected, load breeds for that country
-                loadBreeds(value);
-                breedContainer.style.display = 'block';
-                bloodlineContainer.style.display = 'block';
-                
-                // Set breed to "All Breeds" by default
-                setTimeout(() => {
-                    const breedSelectedText = breedDropdown.querySelector('.selected-text');
-                    breedSelectedText.textContent = 'All Breeds';
-                    breedSelectedText.classList.remove('placeholder');
-                    currentFilters.breed = 'all';
-                    
-                    // Set bloodline to "All Bloodlines" by default
-                    const bloodlineSelectedText = bloodlineDropdown.querySelector('.selected-text');
-                    bloodlineSelectedText.textContent = 'All Bloodlines';
-                    bloodlineSelectedText.classList.remove('placeholder');
-                    currentFilters.bloodline = 'all';
-                    updateApplyButton();
-                }, 100);
-            }
-        } else if (filterType === 'breed') {
-            if (value === 'all') {
-                // If "All Breeds" is selected, show all bloodlines
-                bloodlineContainer.style.display = 'block';
-                loadBloodlines('labrador'); // Use default breed for getting all bloodlines
-                setTimeout(() => {
-                    const bloodlineSelectedText = bloodlineDropdown.querySelector('.selected-text');
-                    bloodlineSelectedText.textContent = 'All Bloodlines';
-                    bloodlineSelectedText.classList.remove('placeholder');
-                    currentFilters.bloodline = 'all';
-                    updateApplyButton();
-                }, 100);
-            } else {
-                // If specific breed is selected, load bloodlines for that breed
-                loadBloodlines(value);
-                bloodlineContainer.style.display = 'block';
-                
-                // Set bloodline to "All Bloodlines" by default
-                setTimeout(() => {
-                    const bloodlineSelectedText = bloodlineDropdown.querySelector('.selected-text');
-                    bloodlineSelectedText.textContent = 'All Bloodlines';
-                    bloodlineSelectedText.classList.remove('placeholder');
-                    currentFilters.bloodline = 'all';
-                    updateApplyButton();
-                }, 100);
-            }
+        // Reset dependent dropdowns
+        if (typeof $.fn.select2 !== 'undefined') {
+            $('#breedFilter').val('').trigger('change');
+            $('#bloodlineFilter').val('').trigger('change');
+        } else {
+            $('#breedFilter').val('');
+            $('#bloodlineFilter').val('');
         }
-    }
-    
-    // Reset dropdown to placeholder
-    function resetDropdown(dropdown, placeholder) {
-        if (!dropdown) return;
+        $('#breedFilterGroup').hide();
+        $('#bloodlineFilterGroup').hide();
         
-        const selectedText = dropdown.querySelector('.selected-text');
-        selectedText.textContent = placeholder;
-        selectedText.classList.add('placeholder');
-    }
+        if (countryId) {
+            loadBreeds(countryId);
+            $('#breedFilterGroup').show();
+        }
+        
+        updateApplyButton();
+    });
     
-    // Close all dropdowns
-    function closeAllDropdowns() {
-        document.querySelectorAll('.dropdown-toggle').forEach(dropdown => {
-            dropdown.classList.remove('active');
-            dropdown.nextElementSibling.classList.remove('show');
-        });
-    }
+    // Breed change handler
+    $('#breedFilter').on('change', function() {
+        const breedId = $(this).val();
+        
+        // Reset bloodline dropdown
+        if (typeof $.fn.select2 !== 'undefined') {
+            $('#bloodlineFilter').val('').trigger('change');
+        } else {
+            $('#bloodlineFilter').val('');
+        }
+        $('#bloodlineFilterGroup').hide();
+        
+        if (breedId) {
+            loadBloodlines(breedId);
+            $('#bloodlineFilterGroup').show();
+        }
+        
+        updateApplyButton();
+    });
     
-    // Load countries
+    // Bloodline change handler
+    $('#bloodlineFilter').on('change', function() {
+        updateApplyButton();
+    });
+    
+    // Apply filters handler
+    $('#applyFilters').on('click', function() {
+        const filters = {
+            country: $('#countryFilter').val(),
+            breed: $('#breedFilter').val(),
+            bloodline: $('#bloodlineFilter').val()
+        };
+        
+        console.log('Applying filters:', filters);
+        // Here you would implement the actual filtering logic
+        alert(`Filters applied:\nCountry: ${filters.country || 'None'}\nBreed: ${filters.breed || 'None'}\nBloodline: ${filters.bloodline || 'None'}`);
+    });
+    
+    // Clear filters handler
+    $('#clearFilters').on('click', function() {
+        if (typeof $.fn.select2 !== 'undefined') {
+            $('#countryFilter').val('').trigger('change');
+            $('#breedFilter').val('').trigger('change');
+            $('#bloodlineFilter').val('').trigger('change');
+        } else {
+            $('#countryFilter').val('');
+            $('#breedFilter').val('');
+            $('#bloodlineFilter').val('');
+        }
+        $('#breedFilterGroup').hide();
+        $('#bloodlineFilterGroup').hide();
+        updateApplyButton();
+    });
+    
+    // Load countries from API
     function loadCountries() {
         fetch('/filters/countries')
             .then(response => response.json())
             .then(data => {
-                const optionsContainer = countryDropdown.nextElementSibling.querySelector('.options-container');
-                optionsContainer.innerHTML = '<div class="option" data-value="">{{ __('messages.select_country') }}</div>';
+                const countrySelect = $('#countryFilter');
+                countrySelect.empty().append('<option value="">Select Country</option>');
                 
-                // Add "All Countries" option first
-                const allCountriesOption = document.createElement('div');
-                allCountriesOption.className = 'option';
-                allCountriesOption.setAttribute('data-value', 'all');
-                allCountriesOption.textContent = 'All Countries';
-                optionsContainer.appendChild(allCountriesOption);
-                
-                // Handle object format {key: value}
                 Object.entries(data).forEach(([key, value]) => {
-                    const option = document.createElement('div');
-                    option.className = 'option';
-                    option.setAttribute('data-value', key);
-                    option.textContent = value;
-                    optionsContainer.appendChild(option);
+                    countrySelect.append(`<option value="${key}">${value}</option>`);
                 });
                 
-                // Set default selection to "All Countries"
-                const selectedText = countryDropdown.querySelector('.selected-text');
-                selectedText.textContent = 'All Countries';
-                selectedText.classList.remove('placeholder');
-                currentFilters.country = 'all';
-                
-                // Show breed and bloodline containers with "All" options
-                breedContainer.style.display = 'block';
-                bloodlineContainer.style.display = 'block';
-                
-                // Set default breed and bloodline to "All"
-                setDefaultAllOptions();
+                if (typeof $.fn.select2 !== 'undefined') {
+                    countrySelect.trigger('change');
+                }
             })
             .catch(error => {
                 console.error('Error loading countries:', error);
@@ -589,46 +477,20 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`/filters/breeds?country=${countryId}`)
             .then(response => response.json())
             .then(data => {
-                const optionsContainer = breedDropdown.nextElementSibling.querySelector('.options-container');
-                optionsContainer.innerHTML = '<div class="option" data-value="">{{ __('messages.select_breed') }}</div>';
+                const breedSelect = $('#breedFilter');
+                breedSelect.empty().append('<option value="">Select Breed</option>');
                 
-                // Add "All Breeds" option first
-                const allBreedsOption = document.createElement('div');
-                allBreedsOption.className = 'option';
-                allBreedsOption.setAttribute('data-value', 'all');
-                allBreedsOption.textContent = 'All Breeds';
-                optionsContainer.appendChild(allBreedsOption);
-                
-                // Handle object format {key: value}
                 Object.entries(data).forEach(([key, value]) => {
-                    const option = document.createElement('div');
-                    option.className = 'option';
-                    option.setAttribute('data-value', key);
-                    option.textContent = value;
-                    optionsContainer.appendChild(option);
+                    breedSelect.append(`<option value="${key}">${value}</option>`);
                 });
+                
+                if (typeof $.fn.select2 !== 'undefined') {
+                    breedSelect.trigger('change');
+                }
             })
             .catch(error => {
                 console.error('Error loading breeds:', error);
             });
-    }
-    
-    // Set default "All" options for breeds and bloodlines
-    function setDefaultAllOptions() {
-        // Set breed to "All Breeds"
-        const breedSelectedText = breedDropdown.querySelector('.selected-text');
-        breedSelectedText.textContent = 'All Breeds';
-        breedSelectedText.classList.remove('placeholder');
-        currentFilters.breed = 'all';
-        
-        // Set bloodline to "All Bloodlines"
-        const bloodlineSelectedText = bloodlineDropdown.querySelector('.selected-text');
-        bloodlineSelectedText.textContent = 'All Bloodlines';
-        bloodlineSelectedText.classList.remove('placeholder');
-        currentFilters.bloodline = 'all';
-        
-        // Update apply button state
-        updateApplyButton();
     }
     
     // Load bloodlines for selected breed
@@ -636,82 +498,71 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`/filters/bloodlines?breed=${breedId}`)
             .then(response => response.json())
             .then(data => {
-                const optionsContainer = bloodlineDropdown.nextElementSibling.querySelector('.options-container');
-                optionsContainer.innerHTML = '<div class="option" data-value="">{{ __('messages.select_bloodline') }}</div>';
+                const bloodlineSelect = $('#bloodlineFilter');
+                bloodlineSelect.empty().append('<option value="">Select Bloodline</option>');
                 
-                // Add "All Bloodlines" option first
-                const allBloodlinesOption = document.createElement('div');
-                allBloodlinesOption.className = 'option';
-                allBloodlinesOption.setAttribute('data-value', 'all');
-                allBloodlinesOption.textContent = 'All Bloodlines';
-                optionsContainer.appendChild(allBloodlinesOption);
-                
-                // Handle object format {key: value}
                 Object.entries(data).forEach(([key, value]) => {
-                    const option = document.createElement('div');
-                    option.className = 'option';
-                    option.setAttribute('data-value', key);
-                    option.textContent = value;
-                    optionsContainer.appendChild(option);
+                    bloodlineSelect.append(`<option value="${key}">${value}</option>`);
                 });
+                
+                if (typeof $.fn.select2 !== 'undefined') {
+                    bloodlineSelect.trigger('change');
+                }
             })
             .catch(error => {
                 console.error('Error loading bloodlines:', error);
             });
     }
     
-    
     // Update apply button state
     function updateApplyButton() {
-        const hasSelection = currentFilters.country || currentFilters.breed || currentFilters.bloodline;
-        applyBtn.disabled = !hasSelection;
+        const hasSelection = $('#countryFilter').val() || $('#breedFilter').val() || $('#bloodlineFilter').val();
+        $('#applyFilters').prop('disabled', !hasSelection);
     }
     
-    // Apply filters
-    function applyFilters() {
-        console.log('Applying filters:', currentFilters);
-        // Here you would implement the actual filtering logic
-        // For now, just show an alert
-        alert(`Filters applied:\nCountry: ${currentFilters.country || 'None'}\nBreed: ${currentFilters.breed || 'None'}\nBloodline: ${currentFilters.bloodline || 'None'}`);
+    // Fallback function for standard dropdowns
+    function initializeStandardDropdowns() {
+        console.log('Initializing standard dropdowns as fallback');
+        
+        // Add basic styling for standard dropdowns
+        $('.filter-select').addClass('form-control');
+        
+        // Update change handlers to work with standard dropdowns
+        $('#countryFilter').off('change').on('change', function() {
+            const countryId = $(this).val();
+            
+            // Reset dependent dropdowns
+            $('#breedFilter').val('');
+            $('#bloodlineFilter').val('');
+            $('#breedFilterGroup').hide();
+            $('#bloodlineFilterGroup').hide();
+            
+            if (countryId) {
+                loadBreeds(countryId);
+                $('#breedFilterGroup').show();
+            }
+            
+            updateApplyButton();
+        });
+        
+        $('#breedFilter').off('change').on('change', function() {
+            const breedId = $(this).val();
+            
+            // Reset bloodline dropdown
+            $('#bloodlineFilter').val('');
+            $('#bloodlineFilterGroup').hide();
+            
+            if (breedId) {
+                loadBloodlines(breedId);
+                $('#bloodlineFilterGroup').show();
+            }
+            
+            updateApplyButton();
+        });
+        
+        $('#bloodlineFilter').off('change').on('change', function() {
+            updateApplyButton();
+        });
     }
-    
-    // Clear all filters
-    function clearAllFilters() {
-        currentFilters = {
-            country: 'all',
-            breed: 'all',
-            bloodline: 'all'
-        };
-        
-        // Reset dropdowns to "All" options
-        const countrySelectedText = countryDropdown.querySelector('.selected-text');
-        countrySelectedText.textContent = 'All Countries';
-        countrySelectedText.classList.remove('placeholder');
-        
-        const breedSelectedText = breedDropdown.querySelector('.selected-text');
-        breedSelectedText.textContent = 'All Breeds';
-        breedSelectedText.classList.remove('placeholder');
-        
-        const bloodlineSelectedText = bloodlineDropdown.querySelector('.selected-text');
-        bloodlineSelectedText.textContent = 'All Bloodlines';
-        bloodlineSelectedText.classList.remove('placeholder');
-        
-        // Show all containers
-        breedContainer.style.display = 'block';
-        bloodlineContainer.style.display = 'block';
-        
-        // Update apply button
-        updateApplyButton();
-    }
-    
-    // Apply filters handler
-    applyBtn.addEventListener('click', function() {
-        applyFilters();
-    });
-    
-    // Clear filters handler
-    clearBtn.addEventListener('click', function() {
-        clearAllFilters();
-    });
 });
 </script>
