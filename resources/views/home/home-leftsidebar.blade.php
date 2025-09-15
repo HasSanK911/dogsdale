@@ -1,9 +1,9 @@
 <div class="h-100">
     <div class="bg-white p-3 rounded-3 w-100">
         <div class="d-flex flex-column align-items-center gap-2">
-            <img src="{{ asset('dogs/davidbates.jpg') }}" alt="Logo" class="img-fluid rounded-circle" width="120px" height="120px"> 
+            <img src="{{ asset('dogs/chinaman.jpeg') }}" alt="Logo" class="rounded-circle object-fit-cover" width="120px" height="120px"> 
             <a href="{{ route('home') }}" class="text-decoration-none text-dark fs-5 fw-semibold">
-                David Bates
+                Ali Hassan
             </a>
         </div>
         <div class="mt-3 d-flex flex-column gap-2">
@@ -241,7 +241,7 @@
     .select2-container--default .select2-selection--single {
         border: 1px solid #dee2e6 !important;
         border-radius: 8px !important;
-        height: 38px !important;
+        height: 48px !important;
         padding: 0 12px !important;
         background: white !important;
     }
@@ -273,7 +273,7 @@
         border: 1px solid #dee2e6 !important;
         border-radius: 6px !important;
         padding: 6px 10px !important;
-        font-size: 13px !important;
+        font-size: 14px !important;
     }
     
     .select2-container--default .select2-results__option--highlighted[aria-selected] {
