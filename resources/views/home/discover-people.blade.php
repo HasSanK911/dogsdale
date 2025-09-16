@@ -1,5 +1,5 @@
 <div class="container-fluid p-0 mt-3">
-    <div class="discover-people-section bg-white rounded-3 p-4 mb-4">
+    <div class="discover-people-section bg-white rounded-3 p-4">
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h5 class="mb-0 fw-medium text-dark">Discover People</h5>
