@@ -12,6 +12,8 @@
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -404,6 +406,11 @@
             list-style: none;
             z-index: 1000;
             overflow: hidden;
+            display: none;
+        }
+
+        .dropdown-menu.show {
+            display: block !important;
         }
 
         .dropdown-header {
@@ -456,6 +463,12 @@
             font-size: 15px;
             font-weight: 500;
             transition: all 0.2s ease;
+        }
+
+        .dropdown-link i {
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
         }
 
         .dropdown-link:hover {
@@ -630,7 +643,8 @@
             <!-- Right Section - Navigation -->
             <div class="header-right">
                 <!-- Language Switcher -->
-                @include('partials.language-switcher')
+
+                
                 
                 <div class="nav-items">
                     <a href="#" class="nav-item" title="Messages">
@@ -651,14 +665,14 @@
                 </div>
 
                 <!-- Profile Menu -->
-                <div class="profile-menu">
-                    <button class="profile-btn" data-bs-toggle="dropdown">
+                <div class="profile-menu dropdown">
+                    <button class="profile-btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="profile-avatar">
                             <div class="avatar-ring"></div>
                             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Profile" class="profile-img">
                         </div>
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end">
                         <li class="dropdown-header">
                             <div class="user-info">
                                 <div class="user-avatar">
@@ -670,28 +684,18 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{ route('home') }}" class="dropdown-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9,22 9,12 15,12 15,22"></polyline>
-                            </svg>
-                            {{ __('messages.home') }}
+                        <li><a href="#" class="dropdown-link">
+                            <i class="bi bi-person"></i>
+                            Profile
                         </a></li>
-                        <li><a href="{{ route('dogs') }}" class="dropdown-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            {{ __('messages.dogs') }}
+                        <li><a href="#" class="dropdown-link">
+                            <i class="bi bi-gear"></i>
+                            Settings
                         </a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a href="{{ route('login') }}" class="dropdown-link logout">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                <polyline points="16,17 21,12 16,7"></polyline>
-                                <line x1="21" y1="12" x2="9" y2="12"></line>
-                            </svg>
-                            {{ __('messages.logout') }}
+                            <i class="bi bi-box-arrow-right"></i>
+                            Logout
                         </a></li>
                     </ul>
                 </div>
@@ -710,11 +714,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Initialize tooltips
+        // Initialize tooltips and dropdowns
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tooltips
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+            
+            // Initialize dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+            
+            // Debug: Add click event listener to profile button
+            const profileBtn = document.querySelector('.profile-btn');
+            if (profileBtn) {
+                profileBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Profile button clicked');
+                    
+                    const dropdown = this.nextElementSibling;
+                    if (dropdown) {
+                        dropdown.classList.toggle('show');
+                        console.log('Dropdown toggled');
+                    }
+                });
+            }
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                const profileMenu = document.querySelector('.profile-menu');
+                const dropdown = document.querySelector('.dropdown-menu');
+                
+                if (profileMenu && dropdown && !profileMenu.contains(e.target)) {
+                    dropdown.classList.remove('show');
+                }
             });
             
             // Each column will scroll independently with native browser behavior

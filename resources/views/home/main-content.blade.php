@@ -3,6 +3,7 @@
     @include('home.discover-people')
     @include('home.explore-kennels')
     @include('home.display-posts')
+    @include('home.advertisement')
 </div>
 
 <style>
