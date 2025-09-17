@@ -22,6 +22,14 @@ Route::get('/saved', function () {
     return view('main.saved');
 })->name('saved');
 
+Route::get('/stories', function () {
+    return view('main.all-stories');
+})->name('stories');
+
+Route::get('/story/{id}', function ($id) {
+    return view('main.story-detail', compact('id'));
+})->name('story.detail');
+
 // Additional main layout pages
 Route::get('/dogs', function () {
     return view('main.dogs');
