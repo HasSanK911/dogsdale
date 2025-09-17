@@ -14,6 +14,14 @@ Route::get('/home', function () {
     return view('main.home');
 })->name('home');
 
+Route::get('/videos', function () {
+    return view('main.videos');
+})->name('videos');
+
+Route::get('/saved', function () {
+    return view('main.saved');
+})->name('saved');
+
 // Additional main layout pages
 Route::get('/dogs', function () {
     return view('main.dogs');

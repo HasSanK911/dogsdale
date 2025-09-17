@@ -360,7 +360,7 @@
     
     /* Buttons */
     .btn-primary {
-        background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+        background: #00A8D1;
         border: none;
         font-weight: 500;
         transition: all 0.3s ease;

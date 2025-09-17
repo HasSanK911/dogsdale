@@ -535,7 +535,7 @@
     }
     
     .post-btn {
-        background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+        background: #00A8D1;
         color: white;
         border: none;
         padding: 12px 24px;

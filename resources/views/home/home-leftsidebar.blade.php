@@ -29,13 +29,13 @@
                 </svg>
                 <span>Create Forum</span>
             </button>
-            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2" onclick="gotosaved()">
                 <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
                 </svg>
                 <span>Saved</span>
             </button>
-            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2">
+            <button class="sidebar-btn d-flex btn align-items-center gap-2 w-100 rounded-3 p-2" onclick="gotovideos()">
                 <svg class="sidebar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="23 7 16 12 23 17 23 7"/>
                     <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
@@ -217,7 +217,7 @@
     }
     
     .filter-actions .btn-primary {
-        background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+        background: #00A8D1;
         border: none;
     }
     
@@ -565,4 +565,12 @@ $(document).ready(function() {
         });
     }
 });
+
+function gotovideos() {
+              window.location.href = "{{ route('videos') }}";
+          }
+
+function gotosaved() {
+              window.location.href = "{{ route('saved') }}";
+          }
 </script>

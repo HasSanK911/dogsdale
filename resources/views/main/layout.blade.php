@@ -181,7 +181,7 @@
         .logo-text {
             font-size: 28px;
             font-weight: 800;
-            background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+            background: #00A8D1;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -286,7 +286,7 @@
         }
 
         .nav-item.active {
-            background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+            background: #00A8D1;
             color: white;
             box-shadow: 0 8px 25px rgba(0, 168, 209, 0.4);
         }
@@ -299,7 +299,7 @@
             transform: translateX(-50%);
             width: 24px;
             height: 3px;
-            background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+            background: #00A8D1;
             border-radius: 2px;
         }
 
@@ -372,7 +372,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, #00A8D1 0%, #0088B8 100%);
+            background: #00A8D1;
             border-radius: 50%;
             z-index: -1;
             animation: rotate 3s linear infinite;
